@@ -9,24 +9,26 @@ import SwiftUI
 
 struct CoinListView: View {
     
-    var viewModel = CoinListViewModel()
+    @ObservedObject var viewModel = CoinListViewModel()
     
     var body: some View {
         LazyVStack {
-            HStack {
-                ForEach(viewModel.market, id: \.hashValue) { item in
+            ForEach(viewModel.market, id: \.hashValue) { item in
+                HStack {
                     VStack(alignment: .leading) {
-                        Text(item.korean)
-                            .font(.headline)
+                        Text("\(item.korean)")
+                            .font(.subheadline)
+                            .bold()
                         Text(item.english)
                             .font(.caption)
                     }
                     Spacer()
                     Text(item.market)
-                        .bold()
+                        .font(.system(size: 13))
                 }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 2)
             }
-            .padding()
         }
         .onAppear {
             viewModel.requestAPI()

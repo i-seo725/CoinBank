@@ -8,10 +8,11 @@
 import Foundation
 
 class CoinListViewModel: ObservableObject {
+    
     @Published var market: [Market] = [Market(market: "마켓", korean: "한국어", english: "영어")]
     
     func requestAPI() {
-        print("콜")
+        market = [Market(market: "2", korean: "11", english: "s"), Market(market: "@@@", korean: "DDS", english: "KKK"), Market(market: "ASDFC", korean: "c", english: "9")]
         guard let url = URL(string: "https://api.upbit.com/v1/market/all") else {
             print("url 오류")
             return
@@ -25,12 +26,14 @@ class CoinListViewModel: ObservableObject {
             
             do {
                 let decodedData = try JSONDecoder().decode([Market].self, from: data)
-                self.market = decodedData
-                print("데이터 교체")
+                DispatchQueue.main.async {
+                    self.market = decodedData
+                }
+                
             } catch {
                 print(error)
             }
-        }
+        }.resume()
         
     }
 }
