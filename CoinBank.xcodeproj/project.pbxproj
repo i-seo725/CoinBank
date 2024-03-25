@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4AB521E2BB159BB00F56337 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB521D2BB159BB00F56337 /* ContentViewModel.swift */; };
 		F4DD88202BAC6A8A00496A90 /* CoinBankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DD881F2BAC6A8A00496A90 /* CoinBankApp.swift */; };
 		F4DD88222BAC6A8A00496A90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DD88212BAC6A8A00496A90 /* ContentView.swift */; };
 		F4DD88242BAC6A8C00496A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DD88232BAC6A8C00496A90 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4AB521D2BB159BB00F56337 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F4DD881C2BAC6A8A00496A90 /* CoinBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DD881F2BAC6A8A00496A90 /* CoinBankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinBankApp.swift; sourceTree = "<group>"; };
 		F4DD88212BAC6A8A00496A90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +34,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4AB521C2BB159AA00F56337 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				F4DD88212BAC6A8A00496A90 /* ContentView.swift */,
+				F4AB521D2BB159BB00F56337 /* ContentViewModel.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		F4DD88132BAC6A8A00496A90 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +62,8 @@
 		F4DD881E2BAC6A8A00496A90 /* CoinBank */ = {
 			isa = PBXGroup;
 			children = (
+				F4AB521C2BB159AA00F56337 /* MainView */,
 				F4DD881F2BAC6A8A00496A90 /* CoinBankApp.swift */,
-				F4DD88212BAC6A8A00496A90 /* ContentView.swift */,
 				F4DD88232BAC6A8C00496A90 /* Assets.xcassets */,
 				F4DD88252BAC6A8C00496A90 /* Preview Content */,
 			);
@@ -139,6 +150,7 @@
 			files = (
 				F4DD88222BAC6A8A00496A90 /* ContentView.swift in Sources */,
 				F4DD88202BAC6A8A00496A90 /* CoinBankApp.swift in Sources */,
+				F4AB521E2BB159BB00F56337 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
