@@ -47,7 +47,7 @@ func bannerView() -> some View {
                 Circle()
                     .fill(.coral)
                     .scaleEffect(1.2)
-                    .offset(x: 0, y: -58)
+                    .offset(x: 0, y: -53)
                 Text("실시간 코인 정보 보기")
                     .font(.headline)
                     .foregroundStyle(.white)
