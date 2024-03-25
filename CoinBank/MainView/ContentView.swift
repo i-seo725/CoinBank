@@ -9,11 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            bannerView()
-
+        NavigationStack {
+            ScrollView {
+                VStack {
+                    bannerView()
+                    CoinListView()
+                }
+                .padding()
+                .scrollIndicators(.automatic)
+                .refreshable { //당겨서 새로고침
+                    
+                }
+                .navigationTitle("Coin List")
+                .navigationDestination(for: Int.self) { _ in
+                    
+                }
+            }
         }
-        .padding()
+        
     }
 }
 
