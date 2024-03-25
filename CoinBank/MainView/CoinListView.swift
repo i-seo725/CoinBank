@@ -8,20 +8,28 @@
 import SwiftUI
 
 struct CoinListView: View {
+    
+    var viewModel = CoinListViewModel()
+    
     var body: some View {
         LazyVStack {
             HStack {
-                VStack(alignment: .leading) {
-                    Text("한글 이름")
-                        .font(.headline)
-                    Text("영어 이름")
-                        .font(.caption)
+                ForEach(viewModel.market, id: \.hashValue) { item in
+                    VStack(alignment: .leading) {
+                        Text(item.korean)
+                            .font(.headline)
+                        Text(item.english)
+                            .font(.caption)
+                    }
+                    Spacer()
+                    Text(item.market)
+                        .bold()
                 }
-                Spacer()
-                Text("코인 단위")
-                    .bold()
             }
             .padding()
+        }
+        .onAppear {
+            viewModel.requestAPI()
         }
     }
 }
