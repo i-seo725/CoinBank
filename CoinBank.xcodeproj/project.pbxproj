@@ -11,10 +11,14 @@
 		F4AB52222BB16C2600F56337 /* CoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB52212BB16C2600F56337 /* CoinListView.swift */; };
 		F4AB52252BB175EB00F56337 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB52242BB175EB00F56337 /* Market.swift */; };
 		F4AB52272BB1776900F56337 /* CoinListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB52262BB1776900F56337 /* CoinListViewModel.swift */; };
+		F4AB52292BB191EB00F56337 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB52282BB191EB00F56337 /* Ticker.swift */; };
 		F4DD88202BAC6A8A00496A90 /* CoinBankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DD881F2BAC6A8A00496A90 /* CoinBankApp.swift */; };
 		F4DD88222BAC6A8A00496A90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DD88212BAC6A8A00496A90 /* ContentView.swift */; };
 		F4DD88242BAC6A8C00496A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DD88232BAC6A8C00496A90 /* Assets.xcassets */; };
 		F4DD88272BAC6A8C00496A90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DD88262BAC6A8C00496A90 /* Preview Assets.xcassets */; };
+		F4EF4ED12BB27525004C0D46 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF4ED02BB27525004C0D46 /* ListView.swift */; };
+		F4EF4ED32BB29776004C0D46 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF4ED22BB29776004C0D46 /* WebSocketManager.swift */; };
+		F4EF4ED62BB29993004C0D46 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = F4EF4ED52BB29993004C0D46 /* SocketIO */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +26,14 @@
 		F4AB52212BB16C2600F56337 /* CoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListView.swift; sourceTree = "<group>"; };
 		F4AB52242BB175EB00F56337 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		F4AB52262BB1776900F56337 /* CoinListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewModel.swift; sourceTree = "<group>"; };
+		F4AB52282BB191EB00F56337 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		F4DD881C2BAC6A8A00496A90 /* CoinBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DD881F2BAC6A8A00496A90 /* CoinBankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinBankApp.swift; sourceTree = "<group>"; };
 		F4DD88212BAC6A8A00496A90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F4DD88232BAC6A8C00496A90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DD88262BAC6A8C00496A90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F4EF4ED02BB27525004C0D46 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		F4EF4ED22BB29776004C0D46 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EF4ED62BB29993004C0D46 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,7 @@
 				F4AB521D2BB159BB00F56337 /* ContentViewModel.swift */,
 				F4AB52212BB16C2600F56337 /* CoinListView.swift */,
 				F4AB52262BB1776900F56337 /* CoinListViewModel.swift */,
+				F4EF4ED02BB27525004C0D46 /* ListView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -55,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				F4AB52242BB175EB00F56337 /* Market.swift */,
+				F4AB52282BB191EB00F56337 /* Ticker.swift */,
+				F4EF4ED22BB29776004C0D46 /* WebSocketManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -111,6 +122,9 @@
 			dependencies = (
 			);
 			name = CoinBank;
+			packageProductDependencies = (
+				F4EF4ED52BB29993004C0D46 /* SocketIO */,
+			);
 			productName = CoinBank;
 			productReference = F4DD881C2BAC6A8A00496A90 /* CoinBank.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +153,9 @@
 				Base,
 			);
 			mainGroup = F4DD88132BAC6A8A00496A90;
+			packageReferences = (
+				F4EF4ED42BB29993004C0D46 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+			);
 			productRefGroup = F4DD881D2BAC6A8A00496A90 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -165,12 +182,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EF4ED12BB27525004C0D46 /* ListView.swift in Sources */,
 				F4AB52222BB16C2600F56337 /* CoinListView.swift in Sources */,
 				F4DD88222BAC6A8A00496A90 /* ContentView.swift in Sources */,
 				F4AB52272BB1776900F56337 /* CoinListViewModel.swift in Sources */,
 				F4DD88202BAC6A8A00496A90 /* CoinBankApp.swift in Sources */,
+				F4EF4ED32BB29776004C0D46 /* WebSocketManager.swift in Sources */,
 				F4AB521E2BB159BB00F56337 /* ContentViewModel.swift in Sources */,
 				F4AB52252BB175EB00F56337 /* Market.swift in Sources */,
+				F4AB52292BB191EB00F56337 /* Ticker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +396,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4EF4ED42BB29993004C0D46 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4EF4ED52BB29993004C0D46 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4EF4ED42BB29993004C0D46 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4DD88142BAC6A8A00496A90 /* Project object */;
 }
