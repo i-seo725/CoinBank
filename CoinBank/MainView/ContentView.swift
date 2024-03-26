@@ -26,6 +26,9 @@ struct ContentView: View {
                 }
             }
         }
+        .onAppear {
+            
+        }
         
     }
 }
@@ -61,7 +64,7 @@ func bannerView() -> some View {
                     .fill(.coral)
                     .scaleEffect(1.2)
                     .offset(x: 0, y: -53)
-                Text("실시간 코인 정보 보기")
+                Text("실시간 코인 차트 보기")
                     .font(.headline)
                     .foregroundStyle(.white)
                     .padding()

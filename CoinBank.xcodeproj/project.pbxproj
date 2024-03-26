@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F453DEE92BB2A40C0081B0A0 /* WebSocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F453DEE82BB2A40C0081B0A0 /* WebSocketModel.swift */; };
 		F4AB521E2BB159BB00F56337 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB521D2BB159BB00F56337 /* ContentViewModel.swift */; };
 		F4AB52222BB16C2600F56337 /* CoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB52212BB16C2600F56337 /* CoinListView.swift */; };
 		F4AB52252BB175EB00F56337 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB52242BB175EB00F56337 /* Market.swift */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F453DEE82BB2A40C0081B0A0 /* WebSocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketModel.swift; sourceTree = "<group>"; };
+		F453DEEA2BB2A8CA0081B0A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F4AB521D2BB159BB00F56337 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F4AB52212BB16C2600F56337 /* CoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListView.swift; sourceTree = "<group>"; };
 		F4AB52242BB175EB00F56337 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 				F4AB52242BB175EB00F56337 /* Market.swift */,
 				F4AB52282BB191EB00F56337 /* Ticker.swift */,
 				F4EF4ED22BB29776004C0D46 /* WebSocketManager.swift */,
+				F453DEE82BB2A40C0081B0A0 /* WebSocketModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -89,6 +93,7 @@
 		F4DD881E2BAC6A8A00496A90 /* CoinBank */ = {
 			isa = PBXGroup;
 			children = (
+				F453DEEA2BB2A8CA0081B0A0 /* Info.plist */,
 				F4AB52232BB175E400F56337 /* Network */,
 				F4AB521C2BB159AA00F56337 /* MainView */,
 				F4DD881F2BAC6A8A00496A90 /* CoinBankApp.swift */,
@@ -189,6 +194,7 @@
 				F4DD88202BAC6A8A00496A90 /* CoinBankApp.swift in Sources */,
 				F4EF4ED32BB29776004C0D46 /* WebSocketManager.swift in Sources */,
 				F4AB521E2BB159BB00F56337 /* ContentViewModel.swift in Sources */,
+				F453DEE92BB2A40C0081B0A0 /* WebSocketModel.swift in Sources */,
 				F4AB52252BB175EB00F56337 /* Market.swift in Sources */,
 				F4AB52292BB191EB00F56337 /* Ticker.swift in Sources */,
 			);
@@ -327,6 +333,8 @@
 				DEVELOPMENT_TEAM = N54L2GS5Z3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoinBank/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -356,6 +364,8 @@
 				DEVELOPMENT_TEAM = N54L2GS5Z3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoinBank/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
