@@ -26,9 +26,6 @@ struct MainView: View {
                 }
             }
         }
-        .onAppear {
-            
-        }
         
     }
 }

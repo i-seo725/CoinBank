@@ -74,7 +74,7 @@ class UpbitPriceAPI: NSObject {
         
         var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
         
-        if let date = lastDate, date.timeIntervalSinceNow < -86400 {
+        if let date = lastDate, date.timeIntervalSinceNow < -7200 {
            request.cachePolicy = .reloadIgnoringLocalCacheData
            lastDate = Date()
         } else {
