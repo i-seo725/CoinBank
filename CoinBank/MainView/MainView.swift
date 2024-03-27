@@ -91,5 +91,5 @@ func scrollOffset(_ proxy: GeometryProxy) -> CGFloat {
 
 
 #Preview {
-    ContentView()
+    MainView()
 }
