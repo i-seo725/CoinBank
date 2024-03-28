@@ -44,6 +44,10 @@ struct ChartView: View {
             .navigationTitle("실시간 호가")
             .navigationBarTitleDisplayMode(.large)
         }
+        .onAppear {
+//            WebSocketManager.shared.openWebSocket()
+//            WebSocketManager.shared.send()
+        }
     }
 }
 

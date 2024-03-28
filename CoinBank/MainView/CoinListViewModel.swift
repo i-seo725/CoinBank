@@ -11,11 +11,11 @@ class CoinListViewModel: ObservableObject {
     
     @Published var market: [Market] = [Market(market: "마켓", korean: "한국어", english: "영어")]
     @Published var price = ""
+    
     //    @Published var ticker: [Ticker] = []
     //    @Published var mainData: [mainViewData] = []
     
     var lastDate: Date?
-    //    var price = ""
     
     struct mainViewData {
         let korean: String
@@ -29,7 +29,13 @@ class CoinListViewModel: ObservableObject {
         let name: String
     }
     
+//    func updateCoinName(_ name: String) {
+//        coinName = name
+//        print(name)
+//    }
+    
     func requestAPI() {
+        
         guard let marketURL = URL(string: "https://api.upbit.com/v1/market/all") else {
             print("url 오류")
             return
@@ -42,7 +48,6 @@ class CoinListViewModel: ObservableObject {
             
             do {
                 let decodedData = try JSONDecoder().decode([Market].self, from: data)
-                
                 DispatchQueue.main.async {
                     self.market = decodedData.filter { $0.market.contains("KRW") }
                     print(self.market.count)

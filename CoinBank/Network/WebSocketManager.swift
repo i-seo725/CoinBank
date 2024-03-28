@@ -47,7 +47,7 @@ final class WebSocketManager: NSObject {
     
     func send() {
         let request = """
-        [{"ticket":"test"},{"type":"orderbook","codes":["KRW-BTC"]}]
+        [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}]
         """
         webSocket?.send(.string(request), completionHandler: { error in
             if let error {

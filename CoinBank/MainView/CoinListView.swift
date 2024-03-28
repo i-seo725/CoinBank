@@ -15,8 +15,6 @@ struct CoinListView: View {
         LazyVStack {
             ForEach(viewModel.market, id: \.hashValue) { item in
                 listView(korean: item.korean, english: item.english, market: item.market)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 2)
             }
         }
         .onAppear {
