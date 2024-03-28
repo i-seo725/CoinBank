@@ -107,7 +107,7 @@ class UpbitPriceAPI: NSObject {
                 
             } catch {
                 print("###########", response)
-                handler("확인 중")
+                handler("확인 중...")
             }
         }.resume()
     }
