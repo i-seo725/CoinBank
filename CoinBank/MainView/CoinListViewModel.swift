@@ -57,7 +57,7 @@ class CoinListViewModel: ObservableObject {
     func getPrice(_ market: String) {
         UpbitPriceAPI.shared.requestPrice(market) { value in
             DispatchQueue.main.async {
-                self.price = "\(value)원"
+                self.price = value
             }
         }
         //        UpbitPriceAPI.shared.requestPrice(market) { value in

@@ -48,7 +48,7 @@ class UpbitPriceAPI: NSObject {
                         let formatter = NumberFormatter()
                         formatter.numberStyle = .decimal
                         self.price = formatter.string(for: data.price) ?? "0"
-                        handler(self.price)
+                        handler(self.price + "원")
                     }
                 }
                 
