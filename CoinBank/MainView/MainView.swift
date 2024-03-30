@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @State private var coinName = "목록에서 코인 선택"
-    @StateObject var viewModel = CoinListViewModel()
+    @StateObject var viewModel = MainViewModel()
     
     var body: some View {
         NavigationStack {
