@@ -11,7 +11,7 @@ class CoinListViewModel: ObservableObject {
     
     @Published var market: [Market] = [Market(market: "마켓", korean: "한국어", english: "영어")]
     @Published var price = ""
-    
+    @Published var coinName = "목록에서 코인 선택"
     //    @Published var ticker: [Ticker] = []
     //    @Published var mainData: [mainViewData] = []
     
@@ -29,10 +29,10 @@ class CoinListViewModel: ObservableObject {
         let name: String
     }
     
-//    func updateCoinName(_ name: String) {
-//        coinName = name
-//        print(name)
-//    }
+    func updateCoinName(_ name: String) {
+        coinName = name
+        print(name)
+    }
     
     func requestAPI() {
         
@@ -65,28 +65,5 @@ class CoinListViewModel: ObservableObject {
                 self.price = value
             }
         }
-        //        UpbitPriceAPI.shared.requestPrice(market) { value in
-        //            self.price = value
-        //        }
-        
-        //        guard let url = URL(string: "https://api.upbit.com/v1/ticker?markets=\(market)") else {
-        //            return
-        //        }
-        //
-        //
-        //        var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
-        //
-        //        if let date = lastDate, date.timeIntervalSinceNow < -7200 {
-        //            request.cachePolicy = .reloadIgnoringLocalCacheData
-        //            lastDate = Date()
-        //        } else {
-        //            request.cachePolicy = .returnCacheDataElseLoad
-        //        }
-        //
-        //        let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
-        //
-        //        session.dataTask(with: request).resume()
-        //    }
-        //
     }
 }

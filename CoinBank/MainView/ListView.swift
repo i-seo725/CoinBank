@@ -13,15 +13,15 @@ struct listView: View {
     var korean: String
     var english: String
     var market: String
-    @ObservedObject var viewModel = CoinListViewModel()
+    @StateObject var viewModel = CoinListViewModel()
     @State private var isHidden = true
+    @Binding var coinName: String
     
     var body: some View {
         VStack {
             Button(action: {
                 isHidden.toggle()
-                let name = isHidden ? "목록에서 코인 선택" : korean
-                MainView.coinName = name
+                coinName = isHidden ? "목록에서 코인 선택" : korean
             }, label: {
                 HStack {
                     VStack(alignment: .leading) {
@@ -73,12 +73,14 @@ struct listView: View {
     }
     
     func infoBox() -> some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 6)
-                .fill(.coral)
+//            RoundedRectangle(cornerRadius: 6)
+//                .fill(.coral)
             ZStack {
-                RoundedRectangle(cornerRadius: 6)
-                    .foregroundStyle(.white)
+//                RoundedRectangle(cornerRadius: 6)
+//                    .foregroundStyle(.white)
+                    RoundedRectangle(cornerRadius: 6)
+                    .stroke()
+                    .foregroundStyle(.coral)
                 VStack {
                     infoLine(title: "24시간 누적 거래대금:", second: "100,234,221", time: "")
                     infoLine(title: "24시간 누적 거래량:", second: "149,130", time: "")
@@ -96,7 +98,6 @@ struct listView: View {
             }
             .padding(.vertical, 6)
             .padding(.horizontal, 6)
-        }
     }
 }
 

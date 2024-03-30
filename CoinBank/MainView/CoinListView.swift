@@ -14,7 +14,7 @@ struct CoinListView: View {
     var body: some View {
         LazyVStack {
             ForEach(viewModel.market, id: \.hashValue) { item in
-                listView(korean: item.korean, english: item.english, market: item.market)
+//                listView(korean: item.korean, english: item.english, market: item.market)
             }
         }
         .onAppear {

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
-    static var coinName = ""
+    @State private var coinName = "목록에서 코인 선택"
+    @StateObject var viewModel = CoinListViewModel()
     
     var body: some View {
         NavigationStack {
@@ -17,7 +18,14 @@ struct MainView: View {
                 LazyVStack {
                     bannerView()
                         .padding(.bottom, 4)
-                    CoinListView()
+                    LazyVStack {
+                        ForEach(viewModel.market, id: \.hashValue) { item in
+                            listView(korean: item.korean, english: item.english, market: item.market, coinName: $coinName)
+                        }
+                    }
+                    .onAppear {
+                        viewModel.requestAPI()
+                    }
                 }
                 .padding(.horizontal, 12)
                 .scrollIndicators(.automatic)
@@ -74,7 +82,7 @@ struct MainView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .frame(maxWidth: .infinity)
                 .frame(height: 200)
-            Text("@")
+            Text(coinName)
                 .font(.title2)
                 .bold()
                 .foregroundStyle(.white)

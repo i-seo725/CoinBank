@@ -45,7 +45,7 @@ final class WebSocketManager: NSObject {
         isOpen = false
     }
     
-    func send() {
+    func tickerSend(_ ticker: String) {
         let request = """
         [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}]
         """
