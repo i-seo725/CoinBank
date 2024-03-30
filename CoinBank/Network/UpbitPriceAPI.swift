@@ -47,7 +47,7 @@ class UpbitPriceAPI: NSObject {
                     DispatchQueue.main.async {
                         let formatter = NumberFormatter()
                         formatter.numberStyle = .decimal
-                        self.price = formatter.string(for: data.price) ?? "0"
+                        self.price = formatter.string(for: data.tradePrice) ?? "0"
                         handler(self.price + "원")
                     }
                 }

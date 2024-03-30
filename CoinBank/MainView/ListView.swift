@@ -73,11 +73,7 @@ struct listView: View {
     }
     
     func infoBox() -> some View {
-//            RoundedRectangle(cornerRadius: 6)
-//                .fill(.coral)
             ZStack {
-//                RoundedRectangle(cornerRadius: 6)
-//                    .foregroundStyle(.white)
                     RoundedRectangle(cornerRadius: 6)
                     .stroke()
                     .foregroundStyle(.coral)
@@ -85,8 +81,8 @@ struct listView: View {
                     infoLine(title: "24시간 누적 거래대금:", second: "100,234,221", time: "")
                     infoLine(title: "24시간 누적 거래량:", second: "149,130", time: "")
                     lineView()
-                    infoLine(title: "52주 신고가:", second: "9,000", time: "2024/09/12")
-                    infoLine(title: "52주 신저가:", second: "2,000", time: "2024/09/12")
+                    infoLine(title: "52주 최고가:", second: "9,000", time: "2024/09/12")
+                    infoLine(title: "52주 최저가:", second: "2,000", time: "2024/09/12")
                     infoLine(title: "시가", second: "133,090", time: "")
                     infoLine(title: "종가", second: "384,111", time: "")
                     lineView()
