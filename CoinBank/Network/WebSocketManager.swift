@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class WebSocketManager: NSObject {
     
@@ -19,7 +20,7 @@ final class WebSocketManager: NSObject {
     private var timer: Timer?
     private var isOpen = false
     
-    var response = WebSocketModel.self
+    var response = PassthroughSubject<Ticker, Never>()
     
 
     func openWebSocket() {
@@ -47,7 +48,7 @@ final class WebSocketManager: NSObject {
     
     func tickerSend(_ ticker: String) {
         let request = """
-        [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}]
+        [{"ticket":"eunseo"},{"type":"ticker","codes":["\(ticker)"]}]
         """
         webSocket?.send(.string(request), completionHandler: { error in
             if let error {
@@ -64,8 +65,10 @@ final class WebSocketManager: NSObject {
                     switch success {
                     case .data(let data):
                         do {
-                            let decodedData = try JSONDecoder().decode(WebSocketModel.self, from: data)
+                            let decodedData = try JSONDecoder().decode(Ticker.self, from: data)
+                            self?.response.send(decodedData)
                             print(decodedData)
+                            
                         } catch {
                             print(error)
                         }

@@ -22,6 +22,7 @@ struct listView: View {
             Button(action: {
                 isHidden.toggle()
                 coinName = isHidden ? "목록에서 코인 선택" : korean
+                isHidden ? viewModel.closeWebSocket() : viewModel.fetchTicker(market) 
             }, label: {
                 HStack {
                     VStack(alignment: .leading) {
@@ -78,16 +79,16 @@ struct listView: View {
                     .stroke()
                     .foregroundStyle(.coral)
                 VStack {
-                    infoLine(title: "24시간 누적 거래대금:", second: "100,234,221", time: "")
-                    infoLine(title: "24시간 누적 거래량:", second: "149,130", time: "")
+                    infoLine(title: "24시간 누적 거래대금:", second: viewModel.tickerData.price24h, time: "")
+                    infoLine(title: "24시간 누적 거래량:", second: viewModel.tickerData.volume24h, time: "")
                     lineView()
-                    infoLine(title: "52주 최고가:", second: "9,000", time: "2024/09/12")
-                    infoLine(title: "52주 최저가:", second: "2,000", time: "2024/09/12")
-                    infoLine(title: "시가", second: "133,090", time: "")
-                    infoLine(title: "종가", second: "384,111", time: "")
+                    infoLine(title: "52주 최고가:", second: viewModel.tickerData.highestPrice, time: viewModel.tickerData.highestDate)
+                    infoLine(title: "52주 최저가:", second: viewModel.tickerData.lowestPrice, time: viewModel.tickerData.lowestDate)
+                    infoLine(title: "시가:", second: viewModel.tickerData.openingPrice, time: "")
+                    infoLine(title: "종가:", second: viewModel.tickerData.closingPrice, time: "")
                     lineView()
-                    infoLine(title: "최근 거래량:", second: "10만개", time: "12:01:55")
-                    infoLine(title: "현재가", second: "123,112", time: "")
+                    infoLine(title: "최근 거래량:", second: viewModel.tickerData.tradeVolume, time: viewModel.tickerData.tradeTime)
+                    infoLine(title: "현재가:", second: viewModel.tickerData.tradePrice, time: "")
                 }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 8)
@@ -96,7 +97,7 @@ struct listView: View {
             .padding(.horizontal, 6)
     }
 }
-
+//
 //#Preview {
-//    listView(korean: "ddd", english: "d", market: "krw-btc", viewModel: CoinListViewModel())
+//    listView(korean: "ddd", english: "d", market: "krw-btc", viewModel: CoinListViewModel(), coinName: <#Binding<String>#>)
 //}
