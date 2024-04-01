@@ -26,11 +26,10 @@ class MainViewModel: ObservableObject {
                 let decodedData = try JSONDecoder().decode([Market].self, from: data)
                 DispatchQueue.main.async {
                     self.market = decodedData.filter { $0.market.contains("KRW") }
-                    print(self.market.count)
                 }
                 
             } catch {
-                print(error)
+                print("&&&&&&&&&&&&", error)
             }
         }.resume()
     }

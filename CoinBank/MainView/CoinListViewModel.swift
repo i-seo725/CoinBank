@@ -11,7 +11,7 @@ import Combine
 class CoinListViewModel: ObservableObject {
     
     @Published var price = ""
-    private var ticker: Ticker = Ticker(code: "", price24h: 0, volume24h: 0, highestPrice: 0, lowestPrice: 0, highestDate: "", lowestDate: "", openingPrice: 0, closingPrice: 0, tradePrice: 0, tradeVolume: 0, tradeTime: "")
+    private var ticker: Ticker = Ticker(market: nil, price24h: 0, volume24h: 0, highestPrice: 0, lowestPrice: 0, highestDate: "", lowestDate: "", openingPrice: 0, closingPrice: 0, tradePrice: 0, tradeVolume: 0, tradeTime: "")
     @Published var tickerData = TickerData(price24h: "", volume24h: "", highestPrice: "", lowestPrice: "", highestDate: "", lowestDate: "", openingPrice: "", closingPrice: "", tradePrice: "", tradeVolume: "", tradeTime: "")
     
     private var cancellable = Set<AnyCancellable>()

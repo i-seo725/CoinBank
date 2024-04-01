@@ -9,7 +9,8 @@ import Foundation
 
 struct Ticker: Codable, Hashable {
     
-    let code: String
+//    let code: String
+    let market: String?
     let price24h, volume24h: Double
     let highestPrice, lowestPrice: Double
     let highestDate, lowestDate: String
@@ -18,7 +19,8 @@ struct Ticker: Codable, Hashable {
     let tradeTime: String
     
     enum CodingKeys: String, CodingKey {
-        case code
+//        case code
+        case market
         case price24h = "acc_trade_price_24h"
         case volume24h = "acc_trade_volume_24h"
         case highestPrice = "highest_52_week_price"
