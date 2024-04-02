@@ -20,7 +20,7 @@ final class OrderBookWebSocketManager: NSObject {
     private var timer: Timer?
     private var isOpen = false
     
-    var response = PassthroughSubject<OrderBookModel, Never>()
+    var response = PassthroughSubject<OrderBook, Never>()
 
     func openWebSocket() {
         if let url = URL(string: "wss://api.upbit.com/websocket/v1") {
@@ -47,7 +47,7 @@ final class OrderBookWebSocketManager: NSObject {
     
     func send(_ ticker: String) {
         let request = """
-        [{"ticket":"eunseo"},{"type":"orderbook","codes":["\(ticker)"]}]
+        [{"ticket":"eunseo25"},{"type":"orderbook","codes":["\(ticker)"]}]
         """
         webSocket?.send(.string(request), completionHandler: { error in
             if let error {

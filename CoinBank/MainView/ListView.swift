@@ -23,7 +23,8 @@ struct listView: View {
             Button(action: {
                 isHidden.toggle()
                 coinName = isHidden ? "코인 선택" : korean
-                isHidden ? viewModel.closeWebSocket() : viewModel.fetchTicker(market) 
+                code = market
+//                isHidden ? viewModel.closeWebSocket() : viewModel.fetchTicker(market)
             }, label: {
                 HStack {
                     VStack(alignment: .leading) {
@@ -96,6 +97,14 @@ struct listView: View {
                 .padding(.horizontal, 8)
                 .padding(.vertical, 8)
             }
+            .onAppear {
+                viewModel.fetchTicker(market)
+            }
+            .onDisappear {
+                viewModel.closeWebSocket()
+                isHidden = true
+                coinName = "코인 선택"
+            }
             .padding(.vertical, 6)
             .padding(.horizontal, 6)
     }
@@ -103,7 +112,7 @@ struct listView: View {
     func navLink() -> some View {
         HStack {
             NavigationLink {
-                ChartView(market: code)
+                ChartView(market: $code)
             } label: {
                 HStack {
                     Image(systemName: "arrowshape.right.circle")

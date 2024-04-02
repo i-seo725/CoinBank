@@ -43,7 +43,7 @@ class CoinListViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] ticker in
                 self?.tickerData = TickerData(price24h: self?.numberFormatter(ticker.price24h) ?? "",
-                                              volume24h: self?.numberFormatter(ticker.volume24h, isPrice: false) ?? "",
+                                              volume24h: ticker.volume24h.formatted() + "개",//self?.numberFormatter(ticker.volume24h, isPrice: false) ?? "",
                                               highestPrice: self?.numberFormatter(ticker.highestPrice) ?? "",
                                               lowestPrice: self?.numberFormatter(ticker.lowestPrice) ?? "",
                                               highestDate: self?.dateFormatter(ticker.highestDate) ?? "",
@@ -79,7 +79,7 @@ class CoinListViewModel: ObservableObject {
         let formatter = DateFormatter()
         
         formatter.timeZone = TimeZone(identifier: "UTC")
-        formatter.dateFormat = "hhmmss"
+        formatter.dateFormat = "HHmmss"
         
         let date = formatter.date(from: time)
         formatter.timeStyle = .medium

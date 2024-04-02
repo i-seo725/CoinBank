@@ -42,7 +42,7 @@ struct MainView: View {
     func bannerCircle(_ color: Color) -> some View {
         Circle()
             .fill(color)
-            .scaleEffect(1.2)
+            .scaleEffect(1.4)
     }
     
     func bannerView() -> some View {
@@ -51,25 +51,9 @@ struct MainView: View {
                 .fill(Color.coral)
                 .overlay {
                     bannerCircle(.peach)
-                        .offset(x: 120, y: 150)
-                    bannerCircle(.peach)
-                        .offset(x: -120, y: 150)
-                    bannerCircle(.peach)
-                        .offset(x: 0, y: 150)
-                    bannerCircle(.lightPink)
-                        .offset(x: 120, y: 170)
-                    bannerCircle(.lightPink)
-                        .offset(x: -120, y: 170)
-                    bannerCircle(.lightPink)
-                        .offset(x: 0, y: 170)
-                    Circle()
-                        .fill(.peach)
-                        .scaleEffect(1.2)
-                        .offset(x: 0, y: -38)
-                    Circle()
-                        .fill(.coral)
-                        .scaleEffect(1.2)
-                        .offset(x: 0, y: -53)
+                        .offset(x: 0, y: -43)
+                    bannerCircle(.coral)
+                        .offset(x: 0, y: -58)
                     Text("코인 정보 보기")
                         .font(.headline)
                         .foregroundStyle(.white)
@@ -78,7 +62,7 @@ struct MainView: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .frame(maxWidth: .infinity)
-                .frame(height: 200)
+                .frame(height: 170)
             Text(coinName)
                 .font(.title)
                 .bold()

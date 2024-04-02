@@ -9,12 +9,11 @@ import Foundation
 
 struct OrderBook: Decodable {
     let code: String
-    let timestamp: Int
     let totalAskSize, totalBidSize: Double
     let units: [OrderBookUnit]
     
     enum CodingKeys: String, CodingKey {
-        case code, timestamp
+        case code
         case totalAskSize = "total_ask_size"
         case totalBidSize = "total_bid_size"
         case units = "orderbook_units"
@@ -26,8 +25,8 @@ struct OrderBookUnit: Decodable {
     let askSize, bidSize: Double
     
     enum CodingKeys: String, CodingKey {
-        case askSize = "total_ask_size"
-        case bidSize = "total_bid_size"
+        case askSize = "ask_size"
+        case bidSize = "bid_size"
         case askPrice = "ask_price"
         case bidPrice = "bid_price"
     }
