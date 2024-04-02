@@ -9,23 +9,22 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State private var coinName = "목록에서 코인 선택"
+    @State private var coinName = "코인 선택"
+    @State private var market = ""
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
         NavigationStack {
+            bannerView()
+                .padding(.horizontal, 8)
             ScrollView {
                 LazyVStack {
-                    bannerView()
-                        .padding(.bottom, 4)
-                    LazyVStack {
-                        ForEach(viewModel.market, id: \.hashValue) { item in
-                            listView(korean: item.korean, english: item.english, market: item.market, coinName: $coinName)
-                        }
+                    ForEach(viewModel.market, id: \.hashValue) { item in
+                        listView(korean: item.korean, english: item.english, market: item.market, coinName: $coinName)
                     }
-                    .onAppear {
-                        viewModel.requestAPI()
-                    }
+                }
+                .onAppear {
+                    viewModel.requestAPI()
                 }
                 .padding(.horizontal, 12)
                 .scrollIndicators(.automatic)
@@ -38,6 +37,7 @@ struct MainView: View {
                 }
             }
         }
+        
         
     }
     
@@ -83,7 +83,7 @@ struct MainView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 200)
             Text(coinName)
-                .font(.title2)
+                .font(.title)
                 .bold()
                 .foregroundStyle(.white)
         }

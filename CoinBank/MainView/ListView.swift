@@ -21,7 +21,7 @@ struct listView: View {
         VStack {
             Button(action: {
                 isHidden.toggle()
-                coinName = isHidden ? "목록에서 코인 선택" : korean
+                coinName = isHidden ? "코인 선택" : korean
                 isHidden ? viewModel.closeWebSocket() : viewModel.fetchTicker(market) 
             }, label: {
                 HStack {
@@ -89,12 +89,34 @@ struct listView: View {
                     lineView()
                     infoLine(title: "최근 거래량:", second: viewModel.tickerData.tradeVolume, time: viewModel.tickerData.tradeTime)
                     infoLine(title: "현재가:", second: viewModel.tickerData.tradePrice, time: "")
+                    lineView()
+                    navLink()
                 }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 8)
             }
             .padding(.vertical, 6)
             .padding(.horizontal, 6)
+    }
+    
+    func navLink() -> some View {
+        HStack {
+            NavigationLink {
+                ChartView()
+            } label: {
+                HStack {
+                    Image(systemName: "arrowshape.right.circle")
+                        .tint(.coral)
+                        .offset(x: 4)
+                    Text("실시간 차트 보기")
+                        .fontWeight(.bold)
+                        .font(.system(size: 14))
+                        .foregroundStyle(.coral)
+                }
+            }
+            Spacer()
+        }
+//        .padding(.horizontal, 2)
     }
 }
 //
