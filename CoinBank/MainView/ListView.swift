@@ -14,6 +14,7 @@ struct listView: View {
     var english: String
     var market: String
     @StateObject var viewModel = CoinListViewModel()
+    @State private var code: String = ""
     @State private var isHidden = true
     @Binding var coinName: String
     
@@ -102,7 +103,7 @@ struct listView: View {
     func navLink() -> some View {
         HStack {
             NavigationLink {
-                ChartView()
+                ChartView(market: code)
             } label: {
                 HStack {
                     Image(systemName: "arrowshape.right.circle")

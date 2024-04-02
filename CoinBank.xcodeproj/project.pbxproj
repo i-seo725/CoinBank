@@ -12,6 +12,9 @@
 		F46824E42BB5A6BE00991102 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F46824E32BB5A6BE00991102 /* .gitignore */; };
 		F46824E62BB5A6E700991102 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46824E52BB5A6E700991102 /* APIKeys.swift */; };
 		F46824E82BB5A9FB00991102 /* UpbitPriceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46824E72BB5A9FB00991102 /* UpbitPriceAPI.swift */; };
+		F4A15AE92BBC54A900873284 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A15AE82BBC54A900873284 /* ChartViewModel.swift */; };
+		F4A15AEB2BBC552500873284 /* OrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A15AEA2BBC552500873284 /* OrderBook.swift */; };
+		F4A15AED2BBC568700873284 /* OrderBookWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A15AEC2BBC568700873284 /* OrderBookWebSocketManager.swift */; };
 		F4AB521E2BB159BB00F56337 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB521D2BB159BB00F56337 /* MainViewModel.swift */; };
 		F4AB52252BB175EB00F56337 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB52242BB175EB00F56337 /* Market.swift */; };
 		F4AB52272BB1776900F56337 /* CoinListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB52262BB1776900F56337 /* CoinListViewModel.swift */; };
@@ -21,7 +24,7 @@
 		F4DD88242BAC6A8C00496A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DD88232BAC6A8C00496A90 /* Assets.xcassets */; };
 		F4DD88272BAC6A8C00496A90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DD88262BAC6A8C00496A90 /* Preview Assets.xcassets */; };
 		F4EF4ED12BB27525004C0D46 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF4ED02BB27525004C0D46 /* ListView.swift */; };
-		F4EF4ED32BB29776004C0D46 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF4ED22BB29776004C0D46 /* WebSocketManager.swift */; };
+		F4EF4ED32BB29776004C0D46 /* TickerWebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF4ED22BB29776004C0D46 /* TickerWebSocketManager.swift */; };
 		F4EF4ED62BB29993004C0D46 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = F4EF4ED52BB29993004C0D46 /* SocketIO */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,9 @@
 		F46824E32BB5A6BE00991102 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F46824E52BB5A6E700991102 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		F46824E72BB5A9FB00991102 /* UpbitPriceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitPriceAPI.swift; sourceTree = "<group>"; };
+		F4A15AE82BBC54A900873284 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		F4A15AEA2BBC552500873284 /* OrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBook.swift; sourceTree = "<group>"; };
+		F4A15AEC2BBC568700873284 /* OrderBookWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookWebSocketManager.swift; sourceTree = "<group>"; };
 		F4AB521D2BB159BB00F56337 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		F4AB52242BB175EB00F56337 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		F4AB52262BB1776900F56337 /* CoinListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewModel.swift; sourceTree = "<group>"; };
@@ -42,7 +48,7 @@
 		F4DD88232BAC6A8C00496A90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DD88262BAC6A8C00496A90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4EF4ED02BB27525004C0D46 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		F4EF4ED22BB29776004C0D46 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		F4EF4ED22BB29776004C0D46 /* TickerWebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerWebSocketManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				F453DEEC2BB43BAE0081B0A0 /* ChartView.swift */,
+				F4A15AE82BBC54A900873284 /* ChartViewModel.swift */,
 			);
 			path = ChartView;
 			sourceTree = "<group>";
@@ -82,9 +89,11 @@
 				F4AB52242BB175EB00F56337 /* Market.swift */,
 				F46824E52BB5A6E700991102 /* APIKeys.swift */,
 				F4AB52282BB191EB00F56337 /* Ticker.swift */,
-				F4EF4ED22BB29776004C0D46 /* WebSocketManager.swift */,
+				F4EF4ED22BB29776004C0D46 /* TickerWebSocketManager.swift */,
+				F4A15AEC2BBC568700873284 /* OrderBookWebSocketManager.swift */,
 				F453DEE82BB2A40C0081B0A0 /* WebSocketModel.swift */,
 				F46824E72BB5A9FB00991102 /* UpbitPriceAPI.swift */,
+				F4A15AEA2BBC552500873284 /* OrderBook.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -209,14 +218,17 @@
 				F4EF4ED12BB27525004C0D46 /* ListView.swift in Sources */,
 				F4DD88222BAC6A8A00496A90 /* MainView.swift in Sources */,
 				F4AB52272BB1776900F56337 /* CoinListViewModel.swift in Sources */,
+				F4A15AED2BBC568700873284 /* OrderBookWebSocketManager.swift in Sources */,
 				F4DD88202BAC6A8A00496A90 /* CoinBankApp.swift in Sources */,
-				F4EF4ED32BB29776004C0D46 /* WebSocketManager.swift in Sources */,
+				F4EF4ED32BB29776004C0D46 /* TickerWebSocketManager.swift in Sources */,
 				F46824E62BB5A6E700991102 /* APIKeys.swift in Sources */,
 				F4AB521E2BB159BB00F56337 /* MainViewModel.swift in Sources */,
 				F453DEED2BB43BAE0081B0A0 /* ChartView.swift in Sources */,
 				F453DEE92BB2A40C0081B0A0 /* WebSocketModel.swift in Sources */,
 				F4AB52252BB175EB00F56337 /* Market.swift in Sources */,
 				F4AB52292BB191EB00F56337 /* Ticker.swift in Sources */,
+				F4A15AE92BBC54A900873284 /* ChartViewModel.swift in Sources */,
+				F4A15AEB2BBC552500873284 /* OrderBook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

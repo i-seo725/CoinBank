@@ -32,9 +32,6 @@ struct MainView: View {
                     
                 }
                 .navigationTitle("Coin List")
-                .navigationDestination(for: Int.self) { _ in
-                    
-                }
             }
         }
         

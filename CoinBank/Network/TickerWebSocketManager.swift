@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 
-final class WebSocketManager: NSObject {
+final class TickerWebSocketManager: NSObject {
     
-    static let shared = WebSocketManager()
+    static let shared = TickerWebSocketManager()
     
     private override init() {
         super.init()
@@ -21,7 +21,6 @@ final class WebSocketManager: NSObject {
     private var isOpen = false
     
     var response = PassthroughSubject<Ticker, Never>()
-    
 
     func openWebSocket() {
         if let url = URL(string: "wss://api.upbit.com/websocket/v1") {
@@ -103,7 +102,7 @@ final class WebSocketManager: NSObject {
 }
 
 
-extension WebSocketManager: URLSessionWebSocketDelegate {
+extension TickerWebSocketManager: URLSessionWebSocketDelegate {
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("OPEN")

@@ -37,9 +37,9 @@ class CoinListViewModel: ObservableObject {
     
     
     func fetchTicker(_ market: String) {
-        WebSocketManager.shared.openWebSocket()
-        WebSocketManager.shared.tickerSend(market)
-        WebSocketManager.shared.response
+        TickerWebSocketManager.shared.openWebSocket()
+        TickerWebSocketManager.shared.tickerSend(market)
+        TickerWebSocketManager.shared.response
             .receive(on: DispatchQueue.main)
             .sink { [weak self] ticker in
                 self?.tickerData = TickerData(price24h: self?.numberFormatter(ticker.price24h) ?? "",
@@ -58,7 +58,7 @@ class CoinListViewModel: ObservableObject {
     }
     
     func closeWebSocket() {
-        WebSocketManager.shared.closeWebSocket()
+        TickerWebSocketManager.shared.closeWebSocket()
     }
     
     func dateFormatter(_ date: String) -> String {

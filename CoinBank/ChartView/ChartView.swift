@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ChartView: View {
+    
+    let market: String
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -52,5 +55,5 @@ struct ChartView: View {
 }
 
 #Preview {
-    ChartView()
+    ChartView(market: "")
 }
