@@ -43,7 +43,7 @@ class CoinListViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] ticker in
                 self?.tickerData = TickerData(price24h: self?.numberFormatter(ticker.price24h) ?? "",
-                                              volume24h: ticker.volume24h.formatted() + "개",//self?.numberFormatter(ticker.volume24h, isPrice: false) ?? "",
+                                              volume24h: self?.numberFormatter(ticker.volume24h, is24: true) ?? "",
                                               highestPrice: self?.numberFormatter(ticker.highestPrice) ?? "",
                                               lowestPrice: self?.numberFormatter(ticker.lowestPrice) ?? "",
                                               highestDate: self?.dateFormatter(ticker.highestDate) ?? "",
@@ -91,14 +91,21 @@ class CoinListViewModel: ObservableObject {
         return formatter.string(from: date)
     }
 
-    func numberFormatter(_ num: Double, isPrice: Bool = true) -> String {
+    func numberFormatter(_ num: Double, isPrice: Bool = true, is24: Bool = false) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = isPrice ? 0 : 15
         
-        let result = formatter.string(from: NSNumber(value: num))
-        guard let result else { return "1,000원" }
-        return isPrice ? result + "원" : result + "개"
+        if is24 {
+            formatter.maximumFractionDigits = 0
+            let result = formatter.string(from: NSNumber(value: num))
+            guard let result else { return "1,000원" }
+            return result + "개"
+        } else {
+            let result = formatter.string(from: NSNumber(value: num))
+            guard let result else { return "1,000원" }
+            return isPrice ? result + "원" : result + "개"
+        }
     }
     
 }
