@@ -16,6 +16,7 @@ struct listView: View {
     @StateObject var viewModel = CoinListViewModel()
     @State private var code: String = ""
     @State private var isHidden = true
+    @State private var isLiked = false
     @Binding var coinName: String
     
     var body: some View {
@@ -28,17 +29,23 @@ struct listView: View {
             }, label: {
                 HStack {
                     VStack(alignment: .leading) {
-                        HStack {
-                            Text(korean)
-                                .font(.subheadline)
-                                .bold()
-                        }
+                        Text(korean)
+                            .font(.subheadline)
+                            .bold()
                         Text("\(english) / \(market)")
                             .font(.caption)
                     }
                     Spacer()
                     Text("\(viewModel.price)")
                         .font(.system(size: 13))
+                    Button(action: {
+                        isLiked.toggle()
+                        isLiked ? Coin.code = market : UserDefaults.standard.removeObject(forKey: market)
+                    }, label: {
+                        let name = isLiked ? "star.fill" : "star"
+                        Image(systemName: name)
+                            .foregroundStyle(.coral)
+                    })
                 }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 2)
@@ -126,10 +133,9 @@ struct listView: View {
             }
             Spacer()
         }
-//        .padding(.horizontal, 2)
     }
 }
-//
-//#Preview {
-//    listView(korean: "ddd", english: "d", market: "krw-btc", viewModel: CoinListViewModel(), coinName: <#Binding<String>#>)
-//}
+
+#Preview {
+    listView(korean: "ddd", english: "d", market: "krw-btc", viewModel: CoinListViewModel(), coinName: .constant("리플"))
+}
