@@ -14,26 +14,59 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
-        NavigationStack {
-            bannerView()
-                .padding(.horizontal, 8)
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.market, id: \.hashValue) { item in
-                        listView(korean: item.korean, english: item.english, market: item.market, coinName: $coinName)
+        TabView {
+            NavigationStack {
+                bannerView()
+                    .padding(.horizontal, 8)
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.liked, id: \.hashValue) { item in
+                            listView(korean: item.korean, english: item.english, market: item.market, coinName: $coinName)
+                        }
                     }
+                    .padding(.horizontal, 12)
                 }
                 .onAppear {
                     viewModel.requestAPI()
+                    print("??", Coin.code)
+                    print(viewModel.liked)
                 }
-                .padding(.horizontal, 12)
-                .scrollIndicators(.automatic)
-                .refreshable { //당겨서 새로고침
-                    
+                .navigationTitle("Watchlist")
+            }
+            .tabItem {
+                VStack {
+                    Image(systemName: "star.fill")
+                    Text("즐겨찾기")
                 }
-                .navigationTitle("Coin List")
+            }
+            NavigationStack {
+                bannerView()
+                    .padding(.horizontal, 8)
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.market, id: \.hashValue) { item in
+                            listView(korean: item.korean, english: item.english, market: item.market, coinName: $coinName)
+                        }
+                    }
+                    .onAppear {
+                        viewModel.requestAPI()
+                    }
+                    .padding(.horizontal, 12)
+                    .scrollIndicators(.automatic)
+                    .refreshable { //당겨서 새로고침
+                        
+                    }
+                    .navigationTitle("Coin List")
+                }
+            }
+            .tabItem {
+                VStack {
+                    Image(systemName: "list.bullet")
+                    Text("전체 보기")
+                }
             }
         }
+        .tint(.coral)
         
         
     }

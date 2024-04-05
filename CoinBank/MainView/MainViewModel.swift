@@ -9,6 +9,7 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     @Published var market: [Market] = [Market(market: "마켓", korean: "한국어", english: "영어")]
+    @Published var liked: [Market] = []
     
     func requestAPI() {
         
@@ -26,6 +27,13 @@ class MainViewModel: ObservableObject {
                 let decodedData = try JSONDecoder().decode([Market].self, from: data)
                 DispatchQueue.main.async {
                     self.market = decodedData.filter { $0.market.contains("KRW") }
+                    if let code = Coin.code {
+                        self.liked = []
+                        code.forEach { code in
+                            let data = decodedData.filter { $0.market == code }
+                            self.liked.append(contentsOf: data)
+                        }
+                    }
                 }
                 
             } catch {

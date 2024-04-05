@@ -12,9 +12,9 @@ struct CoinManager {
     
     let key: String
     
-    var wrappedValue: String? {
+    var wrappedValue: [String]? {
         get {
-            UserDefaults.standard.string(forKey: key)
+            UserDefaults.standard.stringArray(forKey: key)
         } set {
             UserDefaults.standard.setValue(newValue, forKey: key)
         }

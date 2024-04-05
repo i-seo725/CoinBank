@@ -17,6 +17,7 @@ struct listView: View {
     @State private var code: String = ""
     @State private var isHidden = true
     @State private var isLiked = false
+    @State private var imageName = "star"
     @Binding var coinName: String
     
     var body: some View {
@@ -38,14 +39,7 @@ struct listView: View {
                     Spacer()
                     Text("\(viewModel.price)")
                         .font(.system(size: 13))
-                    Button(action: {
-                        isLiked.toggle()
-                        isLiked ? Coin.code = market : UserDefaults.standard.removeObject(forKey: market)
-                    }, label: {
-                        let name = isLiked ? "star.fill" : "star"
-                        Image(systemName: name)
-                            .foregroundStyle(.coral)
-                    })
+                    likedCoin()
                 }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 2)
@@ -134,8 +128,42 @@ struct listView: View {
             Spacer()
         }
     }
+    
+    func likedCoin() -> some View {
+        
+        Button(action: {
+            isLiked.toggle()
+            imageName = isLiked ? "star.fill" : "star"
+            
+            if isLiked {
+                if let list = Coin.code {
+                    var coins = list
+                    coins.append(market)
+                    Coin.code = coins
+                } else {
+                    Coin.code = [market]
+                }
+            } else {
+                if let index = Coin.code?.firstIndex(of: market) {
+                    Coin.code?.remove(at: index)
+                }
+            }
+        }, label: {
+            Image(systemName: imageName)
+                .foregroundStyle(.coral)
+        })
+        .onAppear {
+            if let _ = Coin.code?.firstIndex(of: market) {
+                isLiked = true
+                imageName = "star.fill"
+            } else {
+                isLiked = false
+                imageName = "star"
+            }
+        }
+    }
 }
 
 #Preview {
-    listView(korean: "ddd", english: "d", market: "krw-btc", viewModel: CoinListViewModel(), coinName: .constant("리플"))
+    listView(korean: "ddd", english: "d", market: "KRW-BTC", viewModel: CoinListViewModel(), coinName: .constant("리플"))
 }
