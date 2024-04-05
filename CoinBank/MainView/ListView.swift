@@ -24,7 +24,7 @@ struct listView: View {
         VStack {
             Button(action: {
                 isHidden.toggle()
-                coinName = isHidden ? "코인 선택" : korean
+                coinName = isHidden ? "코인 선택으로\n상세 정보 확인" : korean
                 code = market
 //                isHidden ? viewModel.closeWebSocket() : viewModel.fetchTicker(market)
             }, label: {
@@ -104,7 +104,6 @@ struct listView: View {
             .onDisappear {
                 viewModel.closeWebSocket()
                 isHidden = true
-                coinName = "코인 선택"
             }
             .padding(.vertical, 6)
             .padding(.horizontal, 6)

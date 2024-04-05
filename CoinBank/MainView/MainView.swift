@@ -9,14 +9,14 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State private var coinName = "코인 선택"
+    @State private var coinName = "코인 선택으로\n상세 정보 확인"
     @State private var market = ""
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
         TabView {
             NavigationStack {
-                bannerView()
+                bannerView("즐겨찾는 코인 목록")
                     .padding(.horizontal, 8)
                 ScrollView {
                     LazyVStack {
@@ -40,7 +40,7 @@ struct MainView: View {
                 }
             }
             NavigationStack {
-                bannerView()
+                bannerView("전체 코인 목록")
                     .padding(.horizontal, 8)
                 ScrollView {
                     LazyVStack {
@@ -78,8 +78,8 @@ struct MainView: View {
             .scaleEffect(1.4)
     }
     
-    func bannerView() -> some View {
-        ZStack {
+    func bannerView(_ info: String) -> some View {
+        ZStack(alignment: .center) {
             Rectangle()
                 .fill(Color.coral)
                 .overlay {
@@ -87,7 +87,7 @@ struct MainView: View {
                         .offset(x: 0, y: -43)
                     bannerCircle(.coral)
                         .offset(x: 0, y: -58)
-                    Text("코인 정보 보기")
+                    Text(info)
                         .font(.headline)
                         .foregroundStyle(.white)
                         .padding()
@@ -97,9 +97,12 @@ struct MainView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 170)
             Text(coinName)
-                .font(.title)
+                .multilineTextAlignment(.center)
+                .font(.title2)
                 .bold()
                 .foregroundStyle(.white)
+                .lineLimit(2)
+                
         }
     }
     
