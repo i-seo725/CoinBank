@@ -104,6 +104,7 @@ struct listView: View {
             .onDisappear {
                 viewModel.closeWebSocket()
                 isHidden = true
+                coinName = "코인 선택으로\n상세 정보 확인"
             }
             .padding(.vertical, 6)
             .padding(.horizontal, 6)

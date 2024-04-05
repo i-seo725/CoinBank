@@ -60,6 +60,7 @@ struct ChartView: View {
             .navigationTitle("실시간 호가")
             .navigationBarTitleDisplayMode(.large)
         }
+        .toolbar(.hidden, for: .tabBar)
         .onAppear {
             viewModel.fetchOrderBook(market)
         }
