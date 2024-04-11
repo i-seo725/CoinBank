@@ -9,9 +9,10 @@
 
 
 ## 주요 기능
+ * Combine을 활용하여 WebSocket 응답값 핸들링
  * ViewModifier를 통한 Custom View 관리
  * property wrapper를 활용하여 UserDefault 데이터 관리
- * 불필요한 뷰 렌더링 최소화를 위한 StateObject로의 데이터 처리
+ * 불필요한 뷰 렌더링 최소화를 위해 데이터 처리에 StateObject 활용
  <br/>
 
 ## 개발 기간
