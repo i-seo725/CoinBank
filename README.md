@@ -3,15 +3,15 @@
 
 
 ## 앱 소개
- * 매일 그날의 할 일을 모두 완료하면 포도알 스티커를 하나씩 채워 성취감을 느낄 수 있도록 도와주는 앱
- * 테이블뷰 셀을 좌우로 스와이프하여 완료/취소, 삭제, 미루기 기능 동작
+ * 거래되는 코인 목록 조회 및 즐겨찾기
+ * 코인의 현재가, 거래량 등의 실시간 변동사항 조회 및 실시간 호가 차트 제공
 <br/>
 
 
 ## 주요 기능
- * 사용자가 즐겨찾기한 코인을 UserDefaults에 저장하여 별도 관리
- * WebSocket 통신으로 사용자가 선택한 코인에 대해 최근 거래량 및 현재가 등의 실시간 상세 정보 제공
- * Combine을 활용하여 실시간으로 변동하는 호가에 대한 실시간 반응형 차트 그래프 제공
+ * ViewModifier를 통한 Custom View 관리
+ * property wrapper를 활용하여 UserDefault 데이터 관리
+ * 불필요한 뷰 렌더링 최소화를 위한 StateObject로의 데이터 처리
  <br/>
 
 ## 개발 기간
@@ -29,7 +29,7 @@
 
 ## 사용기술 및 라이브러리
  * SwiftUI, MVVM, Combine, UserDefaults
- * Upbit RestAPI/WebSocket
+ * URLSession, RestAPI, WebSocket
  <br/>
  
 ## 트러블 슈팅     
