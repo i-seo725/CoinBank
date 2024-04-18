@@ -45,7 +45,7 @@ struct listView: View {
                 .padding(.vertical, 2)
             })
             .foregroundStyle(.black)
-            .onAppear {
+            .task {
                 viewModel.getPrice(market)
             }
             if !isHidden {

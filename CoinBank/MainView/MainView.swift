@@ -48,7 +48,7 @@ struct MainView: View {
                             listView(korean: item.korean, english: item.english, market: item.market, coinName: $coinName)
                         }
                     }
-                    .onAppear {
+                    .task {
                         viewModel.requestAPI()
                     }
                     .padding(.horizontal, 12)
